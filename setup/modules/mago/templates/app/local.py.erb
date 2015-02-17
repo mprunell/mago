@@ -1,0 +1,18 @@
+# THIS IS A PROVISIONED FILE.
+#
+# Do not modify directly.
+# Date: <%= Time.new() -%>
+
+<% if scope.lookupvar('mago::target') == 'pro' -%>
+from production import *
+<% elsif scope.lookupvar('mago::target') == 'sta' -%>
+from staging import *
+<% elsif scope.lookupvar('mago::target') == 'test' -%>
+from test import *
+<% elsif scope.lookupvar('mago::target') == 'dev' -%>
+from development import *
+<% end -%>
+
+<% if ['pro', 'sta'].include? scope.lookupvar('mago::target') -%>
+LOGGING['handlers']['file']['filename'] = '<%= scope.lookupvar('mago::log_dir') %>/website.log'
+<% end %>

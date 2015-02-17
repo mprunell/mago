@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+</head>
+<body>
+
+
+
+<section id="cd-timeline" class="cd-container">
+    {% for event in object_list %}
+    <div class="cd-timeline-block {% if event.is_french %}right{% endif %}">
+        <div class="cd-timeline-img cd-picture">
+            <img src="img/icon.jpg" alt="Icon Timeline">
+        </div>
+        <!-- cd-timeline-img -->
+        <div class="cd-timeline-content">
+            <h2>{{ event.headline }}</h2>
+            <p>
+		{{ event.main_content }}
+	    </p>
+            <a href="#0" class="cd-read-more">Read more</a>
+            <span class="cd-date">{{ event.date_label }}</span>
+        </div>
+        <!-- cd-timeline-content -->
+    </div>
+    <!-- cd-timeline-block -->
+{% endfor %}
+</section>
+<!-- cd-timeline -->
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.8.3.min.js"></script>
+<script src="{% static 'js/jquery-1.11.2.min.js' %}"></script>
+<script src="{% static 'js/modernizr.js' %}"></script>
+<script src="{% static 'js/events.js' %}"></script>
+</body>
+</html>

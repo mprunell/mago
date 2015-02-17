@@ -1,0 +1,5 @@
+-r base.pip
+astroid==1.1.1
+logilab-common==0.61.0
+pylint==1.2.1
+selenium==2.42.1

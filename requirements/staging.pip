@@ -1,0 +1,2 @@
+-r base.pip
+djrill==1.2.0
